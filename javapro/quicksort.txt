@@ -1,0 +1,52 @@
+import java.util.*;
+public class quicksort
+{
+int  partioning(int arr[],int low,int high)
+{
+int pivot=arr[high];
+int i=(low-1);
+for(int j=low;j<high;j++)
+{
+if(arr[j]<pivot)
+{
+i++;
+int temp=arr[i];
+arr[i]=arr[j];
+arr[j]=temp;
+}
+}
+int temp=arr[i+1];
+arr[i+1]=arr[high];
+arr[high]=arr[i+1];
+return i+1;
+}
+void sort(int arr,int low,int high)
+{
+if(low<high)
+{
+int pi=paritioning(arr,low,high);
+sort(arr,low,pi-1);
+sort(arr,pi+1,high);
+}
+}
+void print(int arr[],int n)
+{
+for(int i=0;i<n;i++)
+
+{
+System.out.println(arr[i]+" ");
+}
+}
+public static void main(String args[])
+{
+quicksort q=new quicksort();
+Scanner s=new Scanner(System.in);
+int n=s.nextInt();
+for(int i=0;i<n;i++)
+{
+arr[i]=s.nextInt();
+}
+q.sort(arr,0,n-1);
+q.print(arr,n);
+}
+}
