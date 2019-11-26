@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ajax</title>
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+  $("button").click(function()
+  {
+  	
+  	var x=$("#txt1").val();
+  	var y=$("#txt2").val();
+
+   	$.ajax({url: "https://api.onwater.io/api/v1/results/"+x+","+y,success:function(result)
+   	{
+
+alert("Water analysis is"  +result.water);
+   		//document.write("water is"+result.query.water+"<br>");
+
+
+}});
+});
+});
+   	
+   	
+</script> 
+<style>
+	body{
+background-image:url("img.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+}
+p
+{
+	color: white;
+	font-family: calibri;
+	
+}
+h1
+{
+	color: white;
+	font-family: calibri;
+	text-align: center;
+}
+	</style>
+</head>
+<body>
+	<div class="container">
+</div>
+<h1> Water Analysis </h1>
+<p> ENTER LONGITUDE: </p> <input type="text" id="txt1"><br/><br/>
+<p> ENTER LATITUDE:	</p> <input type="text" id="txt2"><br/> <br/>
+
+<button>click me</button><br/> 
+</body>
+</html>
